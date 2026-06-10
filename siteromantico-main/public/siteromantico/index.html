@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Marii Calderaro 💖</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<body>
+
+  <!-- Corações flutuantes de fundo -->
+  <div class="hearts-bg" id="heartsBg"></div>
+  <div class="petals-bg" id="petalsBg"></div>
+
+ <!-- Botão de música -->
+<button class="music-btn" id="musicBtn" aria-label="Tocar música">
+  <span class="music-icon">♪</span>
+</button>
+
+<audio id="bgMusic" loop>
+  <source src="assets/musica/musica.mp3" type="audio/mpeg" />
+</audio>
+
+<div class="music-tooltip" id="musicTooltip">
+  <span>🎵 Para uma experiência mais agradável, clique aqui para ouvir a música</span>
+  <div class="music-tooltip-arrow"></div>
+</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content reveal">
+      <p class="hero-eyebrow">Feliz Dia dos Namorados</p>
+      <h1 class="hero-title">Marii <span>Calderaro</span></h1>
+      <p class="hero-subtitle">um pequeno álbum das nossas memórias</p>
+      <div class="scroll-cue">
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTADOR -->
+  <section class="counter-section reveal">
+    <h2 class="section-title">Nosso Primeito "Te Amo"</h2>
+    <div class="counter" id="counter">
+      <div class="counter-item"><span id="years">0</span><small>anos</small></div>
+      <div class="counter-item"><span id="months">0</span><small>meses</small></div>
+      <div class="counter-item"><span id="days">0</span><small>dias</small></div>
+      <div class="counter-item"><span id="hours">0</span><small>horas</small></div>
+      <div class="counter-item"><span id="minutes">0</span><small>minutos</small></div>
+      <div class="counter-item"><span id="seconds">0</span><small>segundos</small></div>
+    </div>
+    <p class="counter-caption">…e a cada dia EU TE AMO mais ❤</p>
+  </section>
+
+  <!-- ÁLBUM -->
+  <section class="album">
+    <h2 class="section-title reveal">Nossas memórias</h2>
+
+    <div class="memory reveal">
+      <div class="memory-photo">
+        <img src="assets/fotos/foto1.jpg" alt="Memória 1" onerror="this.src='https://placehold.co/800x1000/f3d6df/8a3a52?text=Foto+1'"/>
+      </div>
+      <div class="memory-text">
+        <h3>O começo</h3>
+        <p>Aquele dia em que tudo mudou. Lembro de cada detalhe — do teu sorriso, do seu cheiro do seu abraço quentinho...</p>
+      </div>
+    </div>
+
+    <div class="memory reverse reveal">
+      <div class="memory-photo">
+        <img src="assets/fotos/foto2.jpg" alt="Memória 2" onerror="this.src='https://placehold.co/800x1000/efe1d1/8a5a3a?text=Foto+2'"/>
+      </div>
+      <div class="memory-text">
+        <h3>Nossos encontros</h3>
+        <p>Nos melhores lugares com a MELHOR companhia de todas.</p>
+      </div>
+    </div>
+
+    <div class="memory reveal">
+      <div class="memory-photo">
+        <img src="assets/fotos/foto3.jpg" alt="Memória 3" onerror="this.src='https://placehold.co/800x1000/e4d4ef/5a3a8a?text=Foto+3'"/>
+      </div>
+      <div class="memory-text">
+        <h3>Com você tudo é melhor</h3>
+        <p>Você é o motivo das minhas melhores risadas e mais sinceras.</p>
+      </div>
+    </div>
+
+    <div class="memory reverse reveal">
+      <div class="memory-photo">
+        <img src="assets/fotos/foto4.jpg" alt="Memória 4" onerror="this.src='https://placehold.co/800x1000/d4efe1/3a8a5a?text=Foto+4'"/>
+      </div>
+      <div class="memory-text">
+        <h3>Nós dois</h3>
+        <p>Não importa o lugar, com você qualquer canto vira o meu lugar favorito.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA
+  <section class="letter reveal">
+    <h2 class="section-title">Pra você, meu amor</h2>
+    <div class="letter-card">
+      <p>Marii,</p>
+      <p>Construir o "nós" contigo é a coisa mais linda que já me aconteceu. Obrigado por cada dia, cada abraço, cada bobeira nossa.</p>
+      <p>Eu te amo — hoje, amanhã, e em todos os dias dos namorados que ainda vão vir.</p>
+      <p class="sign">— Com todo o meu amor 💌</p>
+    </div>
+  </section> -->
+
+  <!-- =========================================
+   SEÇÃO "ABRIR PRESENTE"
+========================================= -->
+<section class="gift-section reveal">
+  <h2 class="section-title">Um presente pra você 🎁</h2>
+  <div class="gift-wrapper" id="giftBox" onclick="openGift()">
+    <div class="gift-visual">
+      <div class="gift-body">
+        <div class="gift-ribbon-v"></div>
+      </div>
+      <div class="gift-lid" id="giftLid">
+        <div class="gift-ribbon-h"></div>
+      </div>
+      <span class="gift-bow">🎀</span>
+    </div>
+    <p class="gift-hint" id="giftHint">Clique para abrir ✨</p>
+  </div>
+
+  <div class="gift-message" id="giftMessage">
+  <div class="gift-photo-card">
+    <img src="assets/fotos/foto-presente.jpg" alt="Nossa foto" />
+  </div>
+</div>
+</section>
+
+<section class="instagram-gallery">
+
+    <h2>📸 Nossas Memórias</h2>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (1).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (2).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (3).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (4).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (5).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (6).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (7).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (8).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (9).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (10).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (11).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (12).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (13).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (14).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (15).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (16).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (17).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (18).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (19).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (20).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (21).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (22).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (23).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (24).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (25).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (26).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (27).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (28).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (29).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (30).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (31).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (32).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (33).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (34).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (35).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (36).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (37).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (38).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (39).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (40).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (41).jpg">
+    <p>❤️</p>
+</div>
+
+<div class="swiper-slide">
+    <img src="assets/fotos/Mobile Devices/Foto6 (42).jpg">
+    <p>❤️</p>
+</div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+
+</section>
+
+<!-- =========================================
+   JOGO DA MEMÓRIA
+========================================= -->
+<section class="memory-game-section reveal">
+  <h2 class="section-title">Jogo da Memória 💕</h2>
+  <p class="memory-game-subtitle">encontre os pares das nossas fotos</p>
+
+  <div class="mg-stats">
+    <div>Tentativas: <span id="mgMoves">0</span></div>
+    <div>Pares: <span id="mgPairs">0</span>/4</div>
+  </div>
+
+  <div class="mg-win" id="mgWin">
+    <p class="mg-win-title">Você conseguiu! 🎉</p>
+    <p class="mg-win-sub" id="mgWinMsg">em 0 tentativas</p>
+  </div>
+
+  <div class="mg-grid" id="mgGrid"></div>
+
+  <button class="mg-restart-btn" onclick="initMemoryGame()">↺ Embaralhar</button>
+</section>
+
+<!-- =========================================
+   SEÇÃO "COISAS QUE AMO EM VOCÊ"
+========================================= -->
+<section class="reasons-section reveal">
+  <h2 class="section-title">Coisas que amo em você</h2>
+
+  <div class="reasons-controls">
+    <button class="reasons-btn" onclick="changeCount(-1)">−</button>
+    <span class="reasons-count-label" id="reasonsLabel">100 coisas</span>
+    <button class="reasons-btn" onclick="changeCount(1)">+</button>
+  </div>
+
+  <ol class="reasons-list" id="reasonsList"></ol>
+</section>
+
+
+
+  <footer class="footer">
+    <p>Feito com ❤ para a garota mais incrivel do mundo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
