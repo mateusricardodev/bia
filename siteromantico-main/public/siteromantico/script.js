@@ -68,18 +68,17 @@ if (musicBtn && bgMusic) {
 }
 
 /* ---------- CONTADOR ---------- */
-const startDate = new Date('2024-06-12T00:00:00');
+const startDate = new Date('2025-10-24T00:00:00');
 function updateCounter() {
   const now = new Date();
   let diff = now - startDate;
-  const years  = Math.floor(diff / (365.25 * 24 * 3600 * 1000)); diff -= years  * 365.25 * 24 * 3600 * 1000;
   const months = Math.floor(diff / (30.44 * 24 * 3600 * 1000));  diff -= months * 30.44 * 24 * 3600 * 1000;
   const days   = Math.floor(diff / (24 * 3600 * 1000));           diff -= days   * 24 * 3600 * 1000;
   const hours  = Math.floor(diff / (3600 * 1000));                diff -= hours  * 3600 * 1000;
   const mins   = Math.floor(diff / 60000);                        diff -= mins   * 60000;
   const secs   = Math.floor(diff / 1000);
   const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-  set('years', years); set('months', months); set('days', days);
+  set('months', months); set('days', days);
   set('hours', hours); set('minutes', mins);  set('seconds', secs);
 }
 updateCounter();
@@ -93,16 +92,14 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 /* ---------- ABRIR PRESENTE ---------- */
 function openGift() {
-  const lid  = document.getElementById('giftLid');
-  const msg  = document.getElementById('giftMessage');
-  const hint = document.getElementById('giftHint');
-  if (lid && !lid.classList.contains('open')) {
-    lid.classList.add('open');
-    setTimeout(() => {
-      if (msg)  msg.classList.add('revealed');
-      if (hint) hint.textContent = '💖';
-    }, 500);
-  }
+  document.getElementById('letterModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGift(e) {
+  if (e && e.target !== document.getElementById('letterModal')) return;
+  document.getElementById('letterModal').classList.remove('open');
+  document.body.style.overflow = '';
 }
 
 /* ---------- OQUE EU AMO EM VOCE ---------- */
@@ -234,12 +231,27 @@ function changeCount(delta) {
 
 renderReasons();
 
+//Carrossel pedido
+new Swiper(".pedidoSwiper", {
+    loop: true,
+    slidesPerView: 1,
+    centeredSlides: true,
+    pagination: {
+        el: ".pedidoSwiper .swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+    }
+});
+
 //Fotos insta
 const swiper = new Swiper(".mySwiper", {
     loop: false,
     slidesPerView: 1,
     centeredSlides: true,
-
+    navigation: {
+        nextEl: ".mySwiper .swiper-button-next",
+        prevEl: ".mySwiper .swiper-button-prev",
+    },
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -252,10 +264,10 @@ const swiper = new Swiper(".mySwiper", {
    JOGO DA MEMÓRIA — adicionar ao script.js
 ========================================= */
 const MEMORY_PHOTOS = [
-  'assets/fotos/foto5.jpg',
-  'assets/fotos/foto2.jpg',
-  'assets/fotos/foto3.jpg',
-  'assets/fotos/foto4.jpg',
+  'assets/fotos/Terno.jpeg',
+  'assets/fotos/new/WhatsApp Image 2026-06-10 at 15.46.58 (1).jpeg',
+  'assets/fotos/Pedido3.jpeg',
+  'assets/fotos/JogoBrasil2.jpeg',
 ];
 
 let mgFlipped = [], mgMatched = 0, mgMoves = 0, mgLocked = false;

@@ -1,20 +1,20 @@
 /* =========================================
-   Site Romântico — Marii Calderaro
+   Site Romântico — Minha Princesa
    Reset & variáveis
 ========================================= */
 :root {
-  --rose-50: #fff5f8;
-  --rose-100: #ffe4ec;
-  --rose-200: #f9c5d4;
-  --rose-300: #f29bb3;
-  --rose-500: #d4587a;
-  --rose-700: #8a3a52;
-  --cream: #fdf8f3;
-  --ink: #2b1b22;
-  --gold: #c9a96a;
-  --shadow: 0 20px 60px rgba(138, 58, 82, 0.15);
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --script: 'Dancing Script', cursive;
+  --rose-50:  #f7f3ff;
+  --rose-100: #ead9f7;
+  --rose-200: #d1ade8;
+  --rose-300: #b080d0;
+  --rose-500: #7b4fa0;
+  --rose-700: #4e2a6e;
+  --cream:    #fdf9ff;
+  --ink:      #2b1b3a;
+  --gold:     #d4a820;
+  --shadow:   0 20px 60px rgba(78, 42, 110, 0.15);
+  --serif:    'Cormorant Garamond', Georgia, serif;
+  --script:   'Pinyon Script', cursive;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,6 +48,26 @@ body {
 }
 
 /* =========================================
+   PÉTALAS DE ROSA
+========================================= */
+.petals-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.petal {
+  position: absolute;
+  bottom: -40px;
+  opacity: 0;
+  font-size: 20px;
+  animation: petalFall linear forwards;
+}
+@keyframes petalFall {
+  0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; }
+  10%  { opacity: 0.85; }
+  80%  { opacity: 0.6; }
+  100% { transform: translateY(-110vh) rotate(540deg) scale(0.6); opacity: 0; }
+}
+
+/* =========================================
    Botão de música
 ========================================= */
 .music-btn {
@@ -72,6 +92,21 @@ body {
   min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 2rem;
+  background-image: url('assets/fotos/Imagem-Destaque2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 243, 255, 0.82);
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 .hero-content { max-width: 800px; }
 .hero-eyebrow {
@@ -81,19 +116,20 @@ body {
   margin-bottom: 1rem;
 }
 .hero-title {
-  font-size: clamp(3rem, 10vw, 7rem);
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.02em;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.2rem, 8vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
   color: var(--rose-700);
 }
 .hero-title span {
   display: block;
-  font-family: var(--script);
-  font-weight: 700;
+  font-family: 'Pinyon Script', cursive;
+  font-weight: 400;
   color: var(--gold);
-  font-size: 0.7em;
-  margin-top: 0.5rem;
+  font-size: 1.1em;
+  margin-top: 0.3rem;
 }
 .hero-subtitle {
   font-style: italic;
@@ -125,8 +161,8 @@ body {
    Section title
 ========================================= */
 .section-title {
-  font-family: var(--script);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.4rem, 4vw, 2.6rem);
   text-align: center;
   color: var(--rose-700);
   margin-bottom: 3rem;
@@ -300,113 +336,140 @@ body {
 }
 
 /* =========================================
-   PÉTALAS DE ROSA
-========================================= */
-.petals-bg {
-  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
-}
-.petal {
-  position: absolute;
-  bottom: -40px;
-  opacity: 0;
-  font-size: 20px;
-  animation: petalFall linear forwards;
-}
-@keyframes petalFall {
-  0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; }
-  10%  { opacity: 0.85; }
-  80%  { opacity: 0.6; }
-  100% { transform: translateY(-110vh) rotate(540deg) scale(0.6); opacity: 0; }
-}
-/* =========================================
-   PRESENTE 
+   CARTA DE AMOR
 ========================================= */
 .gift-section {
   position: relative; z-index: 1;
   padding: 6rem 2rem;
   text-align: center;
 }
-.gift-wrapper {
-  cursor: pointer;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-.gift-wrapper:hover { transform: scale(1.05); }
 
-.gift-visual {
+/* --- Envelope card --- */
+.envelope-card {
   position: relative;
-  width: 140px;
-  height: 130px;
-  margin: 0 auto 1.5rem;
-}
-.gift-body {
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 140px; height: 90px;
-  background: var(--rose-500);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-}
-.gift-ribbon-v {
-  position: absolute;
-  left: 50%; transform: translateX(-50%);
-  width: 16px; height: 90px;
-  background: rgba(253,248,243,0.5);
-}
-.gift-lid {
-  position: absolute;
-  top: 0; left: -5px;
-  width: 150px; height: 38px;
-  background: var(--rose-700);
-  border-radius: 8px;
-  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
-}
-.gift-lid.open {
-  transform: translateY(-50px) rotate(-10deg);
-  opacity: 0;
-}
-.gift-ribbon-h {
-  position: absolute;
-  top: 50%; left: 0; transform: translateY(-50%);
-  width: 150px; height: 16px;
-  background: rgba(253,248,243,0.5);
-}
-.gift-bow {
-  position: absolute;
-  top: -16px; left: 50%;
-  transform: translateX(-50%);
-  font-size: 2.2rem;
-}
-.gift-hint {
-  font-style: italic;
-  color: var(--rose-500);
-  font-size: 1.1rem;
-  opacity: 0.85;
-}
-.gift-message {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.8s ease, opacity 0.6s ease;
-  margin-top: 0;
-}
-.gift-message.revealed {
-  max-height: 600px;
-  opacity: 1;
-  margin-top: 2rem;
-}
-.gift-photo-card {
-  max-width: 400px;
+  width: 400px;
+  max-width: 90vw;
+  height: 210px;
   margin: 0 auto;
-  border-radius: 16px;
+  background: #f7f3ff;
+  border: 1.5px dashed #b080d0;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--rose-100);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
-.gift-photo-card img {
+.envelope-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(180,60,90,0.15);
+}
+
+.envelope-flap-shape {
+  position: absolute;
+  top: 0; left: 0; right: 0;
   width: 100%;
-  height: auto;
+  height: 58%;
+  background: #c9a0e0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  pointer-events: none;
+}
+
+.envelope-label {
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  font-weight: 400;
+  color: #4e2a6e;
+  text-transform: uppercase;
+  margin: 0;
+  margin-top: -10px;
+}
+
+.envelope-center-heart {
+  position: relative;
+  z-index: 1;
+  font-size: 1.5rem;
+  color: #d4a820;
+  line-height: 1;
+}
+
+.envelope-cta {
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: #7b4fa0;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* --- Modal da carta --- */
+.letter-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(80, 40, 50, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+.letter-modal-overlay.open {
+  display: flex;
+}
+
+.letter-modal-card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 3rem 2.5rem 2.5rem;
+  max-width: 480px;
+  width: 90vw;
+  box-shadow: 0 20px 60px rgba(80,30,50,0.25);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  line-height: 1.85;
+  color: #4a2530;
+  text-align: left;
+}
+
+.letter-modal-close {
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #a06070;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+.letter-modal-close:hover { color: #7a2040; }
+
+.letter-quote {
   display: block;
+  font-size: 3.5rem;
+  color: #c8a0b0;
+  line-height: 0.8;
+  margin-bottom: 1.2rem;
+  font-family: Georgia, serif;
+}
+
+.letter-modal-card p {
+  margin: 0 0 1rem;
+}
+
+.letter-modal-sign {
+  font-style: italic;
+  color: #8a3050;
+  margin-top: 1.5rem !important;
 }
 /* =========================================
    RAZÕES — adicionar ao style.css
@@ -654,6 +717,19 @@ body {
     margin:auto;
 }
 
+.gallery-nav {
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(220, 220, 220, 0.7);
+    border-radius: 50%;
+    color: #999 !important;
+}
+
+.gallery-nav::after {
+    font-size: 12px !important;
+    font-weight: 700;
+}
+
 .swiper{
     padding-bottom:40px;
 }
@@ -671,6 +747,7 @@ body {
     object-fit:cover;
     display:block;
 }
+
 
 .swiper-slide p{
     padding:15px;
